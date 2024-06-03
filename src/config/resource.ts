@@ -1,0 +1,50 @@
+import { localityFields } from './locality';
+
+const fields = [
+  'homephone',
+  'mobilephone',
+  'bahai_firstname',
+  'middlename',
+  'bahai_lastname',
+  'bahai_workphone',
+  'bahai_nametitle',
+  'bahai_notes',
+  'bahai_fluentlanguagecode',
+  'bahai_otherlanguage',
+  'bahai_traininginstituteexperiencecode',
+  'bahai_racecode',
+  'bahai_ethnicitycode',
+  'bahai_otherethnicity',
+  'bahai_gendercode',
+  'bahai_agerangecode',
+  'bahai_emailaddress2',
+  'bahai_startdate',
+  'bahai_contactmethodcode',
+  'bahai_postalcodeid',
+  'bahai_stateid',
+  'bahai_cityid',
+  'bahai_addressline1',
+  'bahai_addressline2',
+  'bahai_tutorialstartdatetime',
+] as const;
+
+const readOnly = [
+  'isdisabled',
+  'fullname',
+  'entityimage',
+  'createdby',
+  'bahai_compositeaddress',
+  'bahai_regionid',
+  'internalemailaddress',
+  'bahai_autoassign',
+  'bahai_autoassignstatecode',
+  'bahai_role',
+  'businessunitid',
+  'bahai_contactid',
+  'bahai_rawnotes',
+  'bahai_currentcoverage',
+  'bahai_resourceavailability',
+  ...localityFields,
+] as const;
+
+export default { fields: fields, columns: [...fields, ...readOnly] };
