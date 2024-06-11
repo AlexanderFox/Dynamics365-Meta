@@ -38,7 +38,7 @@ export const getBuildFunction = (token: string, url: string, config: TConfig) =>
       url: `EntityDefinitions`,
       params: {
         $select:
-          'LogicalName,LogicalCollectionName,PrimaryIdAttribute,PrimaryNameAttribute,PrimaryImageAttribute,DisplayName,DisplayCollectionName,IsActivity,SchemaName,ObjectTypeCode',
+          'LogicalName,LogicalCollectionName,PrimaryIdAttribute,PrimaryNameAttribute,PrimaryImageAttribute,DisplayName,DisplayCollectionName,IsActivity,SchemaName,ObjectTypeCode,OwnershipType',
         $filter: names.map((name) => `LogicalName eq '${name}'`).join(' or '),
       },
       timeout: 5000,
