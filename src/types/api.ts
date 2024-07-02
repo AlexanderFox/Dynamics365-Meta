@@ -46,7 +46,7 @@ export type TFieldMetaData = {
   LogicalName: string;
   AttributeType: FieldType;
   Format?: string;
-  FormatName?: string;
+  FormatName?: { Value: string };
   DisplayName: {
     UserLocalizedLabel: {
       Label: string;

@@ -121,7 +121,7 @@ export const getBuildFunction = (token: string, url: string, config: TConfig) =>
             extraType: next['@odata.type'],
             type: next.AttributeType,
             format: next.Format,
-            formatName: next.FormatName,
+            formatName: next.FormatName?.Value,
             targets: next.Targets,
             options: options[next.LogicalName],
           },
