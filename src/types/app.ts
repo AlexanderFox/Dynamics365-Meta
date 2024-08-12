@@ -4,6 +4,7 @@ export type TConfig = Record<string, { name: string, columns: readonly string[] 
 
 export type TAppFieldMeta = {
   label: string;
+  description: string;
   type: FieldType;
   format?: string;
   formatName?: string;

@@ -52,6 +52,11 @@ export type TFieldMetaData = {
       Label: string;
     };
   };
+  Description: {
+    UserLocalizedLabel: {
+      Label: string;
+    };
+  };
   MaxLength: number;
   Targets?: string[];
 };

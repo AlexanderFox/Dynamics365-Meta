@@ -118,6 +118,7 @@ export const getBuildFunction = (token: string, url: string, config: TConfig) =>
           ...acc,
           [next.LogicalName]: {
             label: next.DisplayName.UserLocalizedLabel.Label,
+            description: next.Description.UserLocalizedLabel.Label,
             extraType: next['@odata.type'],
             type: next.AttributeType,
             format: next.Format,
