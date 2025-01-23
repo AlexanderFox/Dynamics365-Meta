@@ -57,7 +57,9 @@ export type TFieldMetaData = {
       Label: string;
     };
   };
-  MaxLength: number;
+  MaxLength?: number;
+  MinValue?: number;
+  MaxValue?: number;
   Targets?: string[];
 };
 

@@ -11,7 +11,9 @@ export type TAppFieldMeta = {
   extraType?: string;
   options: [string, string][];
   targets: string[];
-  maxLength: number;
+  maxLength?: number;
+  minValue?: number;
+  maxValue?: number;
 }
 
 export type TAppEntityMeta = {

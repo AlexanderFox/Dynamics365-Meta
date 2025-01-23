@@ -125,6 +125,9 @@ export const getBuildFunction = (token: string, url: string, config: TConfig) =>
             formatName: next.FormatName?.Value,
             targets: next.Targets,
             options: options[next.LogicalName],
+            maxLength: next.MaxLength,
+            minValue: next.MinValue,
+            maxValue: next.MaxValue,
           },
         }),
         {} as Record<string, TAppFieldMeta>
