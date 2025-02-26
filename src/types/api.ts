@@ -37,6 +37,7 @@ export type TMetaData = {
   IsActivity: boolean;
   OwnershipType: string;
   ObjectTypeCode: number;
+  IsCustomEntity: boolean;
 };
 
 export type TApiJoinParams = Pick<TMetaData, 'DisplayName' | 'LogicalName' | 'LogicalCollectionName' | 'PrimaryIdAttribute' | 'PrimaryNameAttribute'>

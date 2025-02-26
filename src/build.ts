@@ -8,6 +8,12 @@ const splitArray = (array: Array<any>, LIMIT = 10) =>
 
 export const systemBasedFields = ['ownerid', 'createdon', 'createdby', 'modifiedon'];
 
+const optionBasedTypes = [
+  '#Microsoft.Dynamics.CRM.PicklistAttributeMetadata',
+  '#Microsoft.Dynamics.CRM.BooleanAttributeMetadata',
+  '#Microsoft.Dynamics.CRM.MultiSelectPicklistAttributeMetadata',
+]
+
 export const getBuildFunction = (token: string, url: string, config: TConfig) => {
   const request = getRequest(token, url);
 
@@ -38,7 +44,7 @@ export const getBuildFunction = (token: string, url: string, config: TConfig) =>
       url: `EntityDefinitions`,
       params: {
         $select:
-          'LogicalName,LogicalCollectionName,PrimaryIdAttribute,PrimaryNameAttribute,PrimaryImageAttribute,DisplayName,DisplayCollectionName,IsActivity,SchemaName,ObjectTypeCode,OwnershipType',
+          'LogicalName,LogicalCollectionName,PrimaryIdAttribute,PrimaryNameAttribute,PrimaryImageAttribute,DisplayName,DisplayCollectionName,IsActivity,SchemaName,ObjectTypeCode,OwnershipType,IsCustomEntity',
         $filter: names.map((name) => `LogicalName eq '${name}'`).join(' or '),
       },
       timeout: 5000,
@@ -92,13 +98,12 @@ export const getBuildFunction = (token: string, url: string, config: TConfig) =>
 
     const options = {};
 
-    const fieldsWithoutMetadata = ['bahai_profileimage', 'entityimage'];
     try {
       await Promise.all(
         fieldsMeta
           .filter(
             (v) =>
-              !fieldsWithoutMetadata.includes(v.LogicalName) &&
+              optionBasedTypes.includes(v['@odata.type']) &&
               (config[entityName]?.columns as string[]).includes(v.LogicalName)
           )
           .map(async ({ LogicalName, AttributeType, '@odata.type': type }) => {

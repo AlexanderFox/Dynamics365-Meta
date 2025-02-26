@@ -29,6 +29,7 @@ export type TAppEntityMeta = {
   OwnershipType: string;
   ObjectTypeCode: number;
   schemaName: string;
+  IsCustomEntity: boolean;
 };
 
 export type TJoinParams = {
